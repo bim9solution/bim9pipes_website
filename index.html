@@ -517,45 +517,14 @@
             <div class="video-container">
                 <h3 style="text-align: center; margin-bottom: 1.5rem; color: #667eea;" class="translate" data-en="Featured Video" data-vi="Video Nổi Bật">Featured Video</h3>
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/watch?v=DrfaZD21bWE" title="BIM9_Pipes Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="BIM9_Pipes Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
             <div class="video-grid">
-
                 <div class="gallery-item">
                     <div class="video-wrapper" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/watch?v=1oXhVDAHU_U" title="Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="gallery-item-content">
-                        <h3 class="translate" data-en="Getting Started Guide" data-vi="Hướng Dẫn Bắt Đầu">Getting Started Guide</h3>
-                        <p class="translate" data-en="Learn the basics of BIM9_Pipes" data-vi="Tìm hiểu những điều cơ bản về BIM9_Pipes">Learn the basics of BIM9_Pipes</p>
-                    </div>
-                </div>
-
-                <div class="gallery-item">
-                    <div class="video-wrapper" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/watch?v=6sB0jzgIq5Y&pp=0gcJCU0KAYcqIYzv" title="Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="gallery-item-content">
-                        <h3 class="translate" data-en="Getting Started Guide" data-vi="Hướng Dẫn Bắt Đầu">Getting Started Guide</h3>
-                        <p class="translate" data-en="Learn the basics of BIM9_Pipes" data-vi="Tìm hiểu những điều cơ bản về BIM9_Pipes">Learn the basics of BIM9_Pipes</p>
-                    </div>
-                </div>                
-                
-                <div class="gallery-item">
-                    <div class="video-wrapper" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/watch?v=NrFmdxjenMI" title="Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="gallery-item-content">
-                        <h3 class="translate" data-en="Getting Started Guide" data-vi="Hướng Dẫn Bắt Đầu">Getting Started Guide</h3>
-                        <p class="translate" data-en="Learn the basics of BIM9_Pipes" data-vi="Tìm hiểu những điều cơ bản về BIM9_Pipes">Learn the basics of BIM9_Pipes</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item">
-                    <div class="video-wrapper" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/watch?v=uzHbc8VpVsM" title="Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="gallery-item-content">
                         <h3 class="translate" data-en="Getting Started Guide" data-vi="Hướng Dẫn Bắt Đầu">Getting Started Guide</h3>
@@ -564,7 +533,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="video-wrapper" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/watch?v=CajF_iKtAwI" title="Tutorial 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="gallery-item-content">
                         <h3 class="translate" data-en="Advanced Features" data-vi="Tính Năng Nâng Cao">Advanced Features</h3>
@@ -573,7 +542,7 @@
                 </div>
                 <div class="gallery-item">
                     <div class="video-wrapper" style="padding-bottom: 56.25%;">
-                        <iframe src="https://www.youtube.com/watch?v=OgTnvDWnid0" title="Tutorial 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="gallery-item-content">
                         <h3 class="translate" data-en="Project Case Study" data-vi="Nghiên Cứu Dự Án">Project Case Study</h3>
@@ -645,4 +614,46 @@
             document.querySelectorAll('.translate').forEach(element => {
                 const text = element.getAttribute('data-' + currentLang);
                 if (text) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = text;
+                    } else {
+                        element.textContent = text;
+                    }
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const text = link.getAttribute('data-' + currentLang);
+                if (text) {
+                    link.textContent = text;
+                }
+            });
+
+            event.target.textContent = currentLang === 'en' ? '🌐 VI' : '🌐 EN';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const message = currentLang === 'en' 
+                ? 'Thank you for contacting us! We will respond as soon as possible.'
+                : 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.';
+            alert(message);
+            event.target.reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (!this.classList.contains('lang-switcher') && !this.hasAttribute('download')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
