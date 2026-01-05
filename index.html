@@ -90,6 +90,14 @@
             animation: fadeInUp 1s 0.2s backwards;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s 0.4s backwards;
+        }
+
         .cta-button {
             background: white;
             color: #667eea;
@@ -99,7 +107,6 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            animation: fadeInUp 1s 0.4s backwards;
             text-decoration: none;
             display: inline-block;
             font-weight: bold;
@@ -108,6 +115,15 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.download {
+            background: #28a745;
+            color: white;
+        }
+
+        .cta-button.download:hover {
+            background: #218838;
         }
 
         .container {
@@ -155,6 +171,122 @@
 
         .about {
             background: #f8f9fa;
+        }
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-content {
+            padding: 1rem;
+            background: white;
+        }
+
+        .gallery-item-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-section {
+            background: #f8f9fa;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .download-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .download-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .download-button {
+            background: white;
+            color: #667eea;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .download-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .download-icon {
+            font-size: 1.5rem;
         }
 
         .contact-form {
@@ -252,6 +384,16 @@
             .nav-links a:not(.lang-switcher) {
                 display: none;
             }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
@@ -262,6 +404,8 @@
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link" data-en="Home" data-vi="Trang Chủ">Home</a></li>
                 <li><a href="#features" class="nav-link" data-en="Features" data-vi="Tính Năng">Features</a></li>
+                <li><a href="#gallery" class="nav-link" data-en="Gallery" data-vi="Thư Viện">Gallery</a></li>
+                <li><a href="#videos" class="nav-link" data-en="Videos" data-vi="Video">Videos</a></li>
                 <li><a href="#about" class="nav-link" data-en="About" data-vi="Giới Thiệu">About</a></li>
                 <li><a href="#contact" class="nav-link" data-en="Contact" data-vi="Liên Hệ">Contact</a></li>
                 <li><a href="#" class="lang-switcher" onclick="toggleLanguage(event)">🌐 VI</a></li>
@@ -272,7 +416,10 @@
     <section id="home" class="hero">
         <h1 class="translate" data-en="BIM9_Pipes" data-vi="BIM9_Pipes">BIM9_Pipes</h1>
         <p class="translate" data-en="Smart Piping Solutions for Modern Construction" data-vi="Giải pháp đường ống thông minh cho công trình hiện đại">Smart Piping Solutions for Modern Construction</p>
-        <a href="https://license.bim9pipes.com/purchase" class="cta-button translate" data-en="Purchase Now" data-vi="Mua Ngay">Purchase Now</a>
+        <div class="hero-buttons">
+            <a href="https://purchase.bim9pipes.com" class="cta-button translate" data-en="Purchase Now" data-vi="Mua Ngay">Purchase Now</a>
+            <a href="#download" class="cta-button download translate" data-en="Download Free Trial" data-vi="Tải Bản Dùng Thử">Download Free Trial</a>
+        </div>
     </section>
 
     <section id="features">
@@ -310,6 +457,111 @@
                     <p class="translate" data-en="Green solutions that protect the environment and promote sustainable development for the future." data-vi="Giải pháp xanh, bảo vệ môi trường và phát triển bền vững cho tương lai.">Green solutions that protect the environment and promote sustainable development for the future.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title translate" data-en="Project Gallery" data-vi="Thư Viện Dự Án">Project Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=600&h=400&fit=crop" alt="BIM Piping Design">
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="3D Piping Model" data-vi="Mô Hình 3D Đường Ống">3D Piping Model</h3>
+                        <p class="translate" data-en="Advanced 3D modeling for complex piping systems" data-vi="Mô hình 3D tiên tiến cho hệ thống đường ống phức tạp">Advanced 3D modeling for complex piping systems</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop" alt="Construction Site">
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="On-Site Installation" data-vi="Thi Công Thực Tế">On-Site Installation</h3>
+                        <p class="translate" data-en="Professional installation team in action" data-vi="Đội ngũ thi công chuyên nghiệp đang làm việc">Professional installation team in action</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop" alt="Engineering Team">
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Expert Engineering" data-vi="Kỹ Sư Chuyên Nghiệp">Expert Engineering</h3>
+                        <p class="translate" data-en="Experienced engineers delivering quality solutions" data-vi="Kỹ sư giàu kinh nghiệm mang đến giải pháp chất lượng">Experienced engineers delivering quality solutions</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop" alt="Modern Building">
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Modern Projects" data-vi="Dự Án Hiện Đại">Modern Projects</h3>
+                        <p class="translate" data-en="Cutting-edge solutions for contemporary buildings" data-vi="Giải pháp tiên tiến cho công trình đương đại">Cutting-edge solutions for contemporary buildings</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Industrial Piping">
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Industrial Solutions" data-vi="Giải Pháp Công Nghiệp">Industrial Solutions</h3>
+                        <p class="translate" data-en="Heavy-duty piping for industrial applications" data-vi="Hệ thống đường ống công nghiệp chuyên dụng">Heavy-duty piping for industrial applications</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Smart Building">
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Smart Buildings" data-vi="Tòa Nhà Thông Minh">Smart Buildings</h3>
+                        <p class="translate" data-en="Integrated systems for intelligent buildings" data-vi="Hệ thống tích hợp cho tòa nhà thông minh">Integrated systems for intelligent buildings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="video-section">
+        <div class="container">
+            <h2 class="section-title translate" data-en="Video Tutorials & Demos" data-vi="Video Hướng Dẫn & Giới Thiệu">Video Tutorials & Demos</h2>
+            
+            <div class="video-container">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: #667eea;" class="translate" data-en="Featured Video" data-vi="Video Nổi Bật">Featured Video</h3>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="BIM9_Pipes Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-grid">
+                <div class="gallery-item">
+                    <div class="video-wrapper" style="padding-bottom: 56.25%;">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Getting Started Guide" data-vi="Hướng Dẫn Bắt Đầu">Getting Started Guide</h3>
+                        <p class="translate" data-en="Learn the basics of BIM9_Pipes" data-vi="Tìm hiểu những điều cơ bản về BIM9_Pipes">Learn the basics of BIM9_Pipes</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="video-wrapper" style="padding-bottom: 56.25%;">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Advanced Features" data-vi="Tính Năng Nâng Cao">Advanced Features</h3>
+                        <p class="translate" data-en="Master advanced piping techniques" data-vi="Làm chủ các kỹ thuật đường ống nâng cao">Master advanced piping techniques</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="video-wrapper" style="padding-bottom: 56.25%;">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-item-content">
+                        <h3 class="translate" data-en="Project Case Study" data-vi="Nghiên Cứu Dự Án">Project Case Study</h3>
+                        <p class="translate" data-en="Real-world implementation examples" data-vi="Ví dụ triển khai thực tế">Real-world implementation examples</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download-section">
+        <div class="container">
+            <h2 class="translate" data-en="Download BIM9_Pipes" data-vi="Tải BIM9_Pipes">Download BIM9_Pipes</h2>
+            <p class="translate" data-en="Get the latest version and start optimizing your piping projects today!" data-vi="Tải phiên bản mới nhất và bắt đầu tối ưu hóa dự án đường ống của bạn ngay hôm nay!">Get the latest version and start optimizing your piping projects today!</p>
+            <a href="https://github.com/bim9solution/BIM9_Pipes_Purchase/releases/download/1.2.4/BIM9_Pipes_Setup.msi" class="download-button" download>
+                <span class="download-icon">⬇️</span>
+                <span class="translate" data-en="Download v1.2.4" data-vi="Tải xuống v1.2.4">Download v1.2.4</span>
+            </a>
+            <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;" class="translate" data-en="Windows 10/11 • 64-bit • 150 MB" data-vi="Windows 10/11 • 64-bit • 150 MB">Windows 10/11 • 64-bit • 150 MB</p>
         </div>
     </section>
 
@@ -362,43 +614,4 @@
             document.querySelectorAll('.translate').forEach(element => {
                 const text = element.getAttribute('data-' + currentLang);
                 if (text) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = text;
-                    } else {
-                        element.textContent = text;
-                    }
-                }
-            });
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                const text = link.getAttribute('data-' + currentLang);
-                if (text) {
-                    link.textContent = text;
-                }
-            });
-
-            event.target.textContent = currentLang === 'en' ? '🌐 VI' : '🌐 EN';
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            const message = currentLang === 'en' 
-                ? 'Thank you for contacting us! We will respond as soon as possible.'
-                : 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.';
-            alert(message);
-            event.target.reset();
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (!this.classList.contains('lang-switcher')) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
