@@ -684,6 +684,57 @@
     <script>
         let currentLang = 'en';
 
+        // Counter API Configuration
+        const NAMESPACE = 'bim9pipes';
+        const PAGE_VISITS_KEY = 'page-visits';
+        const DOWNLOADS_KEY = 'downloads';
+
+        // Initialize counters on page load
+        window.addEventListener('load', function() {
+            // Increment page visit counter
+            fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${PAGE_VISITS_KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('pageVisits').textContent = data.value.toLocaleString();
+                })
+                .catch(err => {
+                    document.getElementById('pageVisits').textContent = '--';
+                    console.error('Error tracking page visits:', err);
+                });
+
+            // Get current download count
+            fetch(`https://api.countapi.xyz/get/${NAMESPACE}/${DOWNLOADS_KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('downloadCount').textContent = data.value.toLocaleString();
+                })
+                .catch(err => {
+                    document.getElementById('downloadCount').textContent = '--';
+                    console.error('Error getting download count:', err);
+                });
+        });
+
+        // Track download button clicks
+        function trackDownload() {
+            fetch(`https://api.countapi.xyz/hit/${NAMESPACE}/${DOWNLOADS_KEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('downloadCount').textContent = data.value.toLocaleString();
+                })
+                .catch(err => {
+                    console.error('Error tracking download:', err);
+                });
+            
+            // Also track with Google Analytics if configured
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'download', {
+                    'event_category': 'Downloads',
+                    'event_label': 'BIM9_Pipes_Setup.msi',
+                    'value': 1
+                });
+            }
+        }
+
         function toggleLanguage(event) {
             event.preventDefault();
             currentLang = currentLang === 'en' ? 'vi' : 'en';
