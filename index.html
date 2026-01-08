@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIM9_Pipes - Smart Piping Solutions</title>
-        <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YV2KRNF49S"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-YV2KRNF49S');
+        gtag('config', 'G-XXXXXXXXXX');
         
         // Track download button clicks
         function trackDownload() {
@@ -370,6 +371,35 @@
             padding: 2rem;
         }
 
+        .stats-bar {
+            background: #34495e;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -434,7 +464,7 @@
         <h1 class="translate" data-en="BIM9_Pipes" data-vi="BIM9_Pipes">BIM9_Pipes</h1>
         <p class="translate" data-en="Smart Piping Solutions for Modern Construction" data-vi="Giải pháp đường ống thông minh cho công trình hiện đại">Smart Piping Solutions for Modern Construction</p>
         <div class="hero-buttons">
-            <a href="https://license.bim9pipes.com/purchase" class="cta-button translate" data-en="Purchase Now" data-vi="Mua Ngay">Purchase Now</a>
+            <a href="https://purchase.bim9pipes.com" class="cta-button translate" data-en="Purchase Now" data-vi="Mua Ngay">Purchase Now</a>
             <a href="#download" class="cta-button download translate" data-en="Download Free Trial" data-vi="Tải Bản Dùng Thử">Download Free Trial</a>
         </div>
     </section>
@@ -639,10 +669,6 @@
                        
                     </div>
                 </div>
-
-
-                
-                
             </div>
         </div>
     </section>
@@ -651,7 +677,7 @@
         <div class="container">
             <h2 class="translate" data-en="Download BIM9_Pipes" data-vi="Tải BIM9_Pipes">Download BIM9_Pipes</h2>
             <p class="translate" data-en="Get the latest version and start optimizing your piping projects today!" data-vi="Tải phiên bản mới nhất và bắt đầu tối ưu hóa dự án đường ống của bạn ngay hôm nay!">Get the latest version and start optimizing your piping projects today!</p>
-            <a href="https://github.com/bim9solution/BIM9_Pipes_Purchase/releases/download/BIM9_Pipes/BIM9_Pipes_Setup.msi" class="download-button" download>
+            <a href="https://github.com/bim9solution/BIM9_Pipes_Purchase/releases/download/1.2.4/BIM9_Pipes_Setup.msi" class="download-button" download>
                 <span class="download-icon">⬇️</span>
                 <span class="translate" data-en="Download v1.2.1" data-vi="Tải xuống v1.2.1">Download v1.2.1</span>
             </a>
@@ -694,7 +720,17 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 BIM9_Pipes. All rights reserved.</p>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number" id="pageVisits">Loading...</div>
+                <div class="stat-label translate" data-en="Page Visits" data-vi="Lượt Truy Cập">Page Visits</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="downloadCount">Loading...</div>
+                <div class="stat-label translate" data-en="Downloads" data-vi="Lượt Tải">Downloads</div>
+            </div>
+        </div>
+        <p style="margin-top: 1rem;">&copy; 2024 BIM9_Pipes. All rights reserved.</p>
         <p>Email: contact@bim9pipes.com
     </footer>
 
