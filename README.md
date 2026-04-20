@@ -1,2 +1,2 @@
-# bim9pipes_website
-website for bim9pipes
+# bim9connect_website
+website for bim9connect
